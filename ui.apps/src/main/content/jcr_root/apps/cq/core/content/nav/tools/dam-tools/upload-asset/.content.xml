@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:description="Bulk Page Activation to Staging/Publish"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Upload Asset"
+          href="/apps/dam-loader/tools/upload.html"
+          target="_blank"/>

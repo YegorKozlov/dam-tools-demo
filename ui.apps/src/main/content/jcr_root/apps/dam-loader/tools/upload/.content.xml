@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Upload Asset"
+    sling:resourceType="granite/ui/components/shell/page">
+    <head jcr:primaryType="nt:unstructured">
+        <clientlibs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/includeclientlibs"
+            categories="[coralui3,granite.ui.coral.foundation]"/>
+    </head>
+    <title
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/text"
+        text="Upload Asset"/>
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
+        maximized="{Boolean}false">
+        <items jcr:primaryType="nt:unstructured">
+            <queryForm
+                granite:class="execute-query-form"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form"
+                action="/apps/dam-loader/tools/upload/upload.html"
+                enctype="multipart/form-data"
+                method="POST"
+                style="vertical"
+                target="executeQueryFrame">
+                <items jcr:primaryType="nt:unstructured">
+                    <file
+                        granite:id="executeQueryButton"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/fileupload"
+                        autoStart="{Boolean}true"
+                        name="file"
+                        text="Select Asset"/>
+                    <destination
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                        fieldLabel="Destination Folder"
+                        name="destPath"
+                        required="true"
+                        rootPath="/content/dam"
+                        value="/content/dam/projects"/>
+                    <iframe
+                        granite:id="executeQueryFrame"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="dam-loader/components/tools/iframe"/>
+                </items>
+            </queryForm>
+        </items>
+    </content>
+    <upload
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="dam-loader/components/tools/upload"/>
+</jcr:root>
